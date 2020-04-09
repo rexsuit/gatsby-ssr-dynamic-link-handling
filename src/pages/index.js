@@ -35,8 +35,11 @@ const getPlatformSpecificLink = urlObj => {
 }
 
 const IndexPage = () => {
-  const [link1] = React.useState(getPlatformSpecificLink())
+  const [link1, setLink1] = React.useState(getPlatformSpecificLink())
   const link2 = getPlatformSpecificLink()
+
+  React.useLayoutEffect(() => setLink1(getPlatformSpecificLink()), [])
+
   return (
     <Layout>
       <SEO title="Home" />
