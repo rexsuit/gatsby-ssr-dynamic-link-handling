@@ -34,6 +34,21 @@ const getPlatformSpecificLink = urlObj => {
   }
 }
 
+const useBrowserSpecificLink = (getterFunction, ssrValue) => {
+  const [link, setLink] = React.useState(ssrValue)
+
+  React.useLayoutEffect(() => setLink(getterFunction()), [getterFunction])
+
+  return link
+}
+
+const useOnboardingLink = () => {
+  return useBrowserSpecificLink(
+    getPlatformSpecificLink,
+    `https://www.default.com`
+  )
+}
+
 const IndexPage = () => {
   const [link1, setLink1] = React.useState(getPlatformSpecificLink())
   const link2 = getPlatformSpecificLink()
@@ -55,6 +70,7 @@ const IndexPage = () => {
         <Link
           to={getPlatformSpecificLink()}
         >{`link3    ${getPlatformSpecificLink()}`}</Link>
+        <a href={useOnboardingLink()}>{`link4    ${useOnboardingLink()}`}</a>
       </div>
     </Layout>
   )
