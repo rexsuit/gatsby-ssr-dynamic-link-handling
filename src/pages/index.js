@@ -55,6 +55,12 @@ const IndexPage = () => {
 
   React.useLayoutEffect(() => setLink1(getPlatformSpecificLink()), [])
 
+  console.log("branch", process.env.BRANCH)
+  console.log("DEPLOY_URL", process.env.DEPLOY_URL)
+  console.log("URL", process.env.URL)
+  console.log("DEPLOY_PRIME_URL", process.env.DEPLOY_PRIME_URL)
+  console.log("CONTEXT", process.env.CONTEXT)
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -65,6 +71,11 @@ const IndexPage = () => {
         <Image />
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
+        <p>"branch", {process.env.BRANCH}</p>
+        <p>"DEPLOY_URL", {process.env.DEPLOY_URL}</p>
+        <p>"URL", {process.env.URL}</p>
+        <p>"DEPLOY_PRIME_URL", {process.env.DEPLOY_PRIME_URL}</p>
+        <p>"CONTEXT", {process.env.CONTEXT}</p>
         <Link to={link1}>{`link1    ${link1}`}</Link>
         <Link to={link2}>{`link2    ${link2}`}</Link>
         <Link
