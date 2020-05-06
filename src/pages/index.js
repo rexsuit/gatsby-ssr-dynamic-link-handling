@@ -55,6 +55,12 @@ const IndexPage = () => {
 
   React.useLayoutEffect(() => setLink1(getPlatformSpecificLink()), [])
 
+  console.log("branch", process.env.BRANCH)
+  console.log("DEPLOY_URL", process.env.DEPLOY_URL)
+  console.log("URL", process.env.URL)
+  console.log("DEPLOY_PRIME_URL", process.env.DEPLOY_PRIME_URL)
+  console.log("CONTEXT", process.env.CONTEXT)
+
   return (
     <Layout>
       <SEO title="Home" />
